@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELL US ABOUT YOU!</title>
+
+    <link rel="stylesheet" href="css/mailform.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <form class="form-1" action="nextpage.html">
+        <fieldset>
+            <h1>登録画面</h1>
+            <hr>
+
+            <label for="email-address">メールアドレス</label><span class="warning"> (必須)</span>
+            <input type="text" name="email-address" id="email-address">
+
+            <label for="first-name">姓 (漢字)</label><span class="warning"> (必須)</span>
+            <input type="text" name="first-name" id="first-name">
+
+            <label for="family-name">名 (漢字)</label><span class="warning"> (必須)</span>
+            <input type="text" name="family-name" id="family-name">
+
+            <label for="first-name-fu">姓 (フリガナ)</label><span class="warning"> (必須)</span>
+            <input type="text" name="first-name-fu" id="first-name-fu">
+
+            <label for="family-name-fu">名 (フリガナ)</label><span class="warning"> (必須)</span>
+            <input type="text" name="family-name-fu" id="family-name-fu">
+
+            <label>性別</label>
+            <div class="gender-options">
+                <input type="radio" name="gender" value="m" id="m" checked>
+                <label for="m">男</label>
+                <input type="radio" name="gender" value="f" id="f">
+                <label for="f">女</label>
+                <input type="radio" name="gender" value="n" id="n">
+                <label for="n">無回答</label>
+                <input type="radio" name="gender" value="m" id="m">
+                <label for="m">未回答</label>
+            </div>
+
+            <hr>
+            <label for="code1">郵便番号</label><span class="warning"> (必須)</span>
+            <div class="postal-area">
+                <input type="text" class="code" name="postal-code-1" id="code1" placeholder="123">
+                <input type="text" class="code" name="postal-code-2" id="code2" placeholder="32211">
+            </div>
+
+            <div class="selection">
+                <label for="ken">都道府県</label><span class="warning"> (必須)</span>
+                <select class="select-ken" name="ken-list" id="ken">
+                    <option value="1">四国</option>
+                    <option value="2">九州・沖縄</option>
+                </select>
+            </div>
+
+            <div class="selection-2">
+                <!-- if the first selection has been completed, the possible choices will show up here -->
+                <select class="select-ken" name="ken-list-1" id="ken-list-1">
+                    <option value="1">徳島県</option>
+                    <option value="2">香川県</option>
+                    <option value="3">愛媛県</option>
+                    <option value="4">高知県</option>
+                </select>
+
+                <select class="select-ken hide" name="ken-list-2" id="ken-list-2">
+                    <option value="1">福岡県</option>
+                    <option value="2">佐賀県</option>
+                    <option value="3">長崎県</option>
+                    <option value="4">熊本県</option>
+                </select>
+            </div>
+
+            <label for="building-name">マンション・アパート名</label><span class="warning"> (必須)</span>
+            <input type="text" name="building-name" id="building-name">
+
+            <label for="phone-number">電話番号</label><span class="warning"> (必須)</span>
+            <input type="text" name="phone-number" id="phone-number">
+
+            <hr>
+            <button class="btn-submit">送信する</button>
+            <hr>
+        </fieldset>
+    </form>
+</body>
+
+</html>

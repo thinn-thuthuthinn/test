@@ -1,3 +1,49 @@
+/* CSS practice for practice_3.html */
+div.box1{
+    color:aliceblue;
+    background-color: darkgreen;
+    width: 50%;
+    height: 300px;
+}
+
+div.box2{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(4, 245, 220);
+}
+
+div.container{
+    background-color: #808080;
+    width: 50%;
+    height: 300px;
+    padding: 2rem;
+}
+
+div.container span{
+    background-color: burlywood;
+    padding: 3rem;
+    /* display: block; */
+    /* margin-bottom: 3rem; */
+}
+
+div.css-p2{
+    width: 600px;
+    height: 600px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+p.child-1{
+    font-size: 20px;
+}
+
+p.child-2{
+    font-size: 1.5%;
+}
+
 a:link, a:visited{
     color: rgb(4, 139, 139);
 }
@@ -29,4 +75,36 @@ table {
     color: black;
     border: dotted 2px white;
     /* border-color: black; */
+}
+
+form.form1{
+    border: 1rem solid cadetblue;
+}
+
+#checkbox-lbl{
+    font-size: 0.85rem;
+}
+
+#first-name{
+    display: block;
+    margin: 1rem;
+}
+
+.submit-btn{
+    display: block;
+    margin: 1rem;
+}
+
+label.yes-lbl{
+    font-size: 2rem;
+}
+
+label.no-lbl{
+    color: red;
+    font-size: 0.85rem;
+}
+
+#os-select{
+    display: block;
+    margin: 1rem;
 }

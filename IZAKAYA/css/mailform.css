@@ -1,0 +1,108 @@
+.form-1{
+    margin: 5%;
+    background-color: white;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset{
+    padding-top: 1rem;
+    width: 80%;
+}
+
+h1, label{
+    font-weight: 650;
+    color: rgb(60, 86, 135);
+    cursor: default;
+    font-size: 1.25rem;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+hr{
+    border: 1px solid rgb(211, 216, 218);
+    margin: 1rem;
+}
+
+span.warning{
+    color: red;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: none;
+}
+
+input[type="text"], .select-ken{
+    border: 1px dashed grey;
+    display: block;
+    color: grey;
+    font-size: 1rem;
+    padding: 8px;
+    margin: 0.6rem 1rem;
+    width: 90%;
+    background-color: rgb(233, 237, 245);
+}
+
+input[type="text"]:focus, .select-ken:focus{
+    border: 1px dashed grey;
+    border-radius: 13px;
+    transition: 0.3s;
+    box-shadow: 0 0 3px black;
+    outline: rgb(68, 84, 119) 2px solid;
+    outline-width: 1px;
+}
+
+.gender-options{
+    margin: 0 6%;
+}
+
+input[type="radio"]{
+    margin: 0.2rem;
+}
+
+.postal-area{
+    display: flex;
+}
+
+.code:first-child{
+    width: 30%;
+    margin-right: 0;
+}
+
+.code:last-child{
+    width: 50%;
+}
+
+.selection{
+    margin-top:0.5rem;
+}
+
+.select-ken{
+    /* width: 50%; */
+    color: black;
+    margin: 10px;
+    padding: 8px;
+    font-size: 1.1rem;
+}
+
+.select-ken.hide{
+    display: none;
+}
+
+button.btn-submit{
+    background-color: rgb(60, 86, 135);
+    color: white;
+    margin-left: 30%;
+    padding: 8px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button.btn-submit:hover{
+    background-color: rgb(36, 54, 110);
+    transition: 0.5s;
+    box-shadow: 0 0 5px black;
+}

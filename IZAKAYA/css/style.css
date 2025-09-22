@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    background-color: rgb(233, 237, 245);
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0.1rem;
+}
+
+button.contact-us a{
+    /* background-color: cornflowerblue; */
+
+    /* size for pc */
+    /* padding: 1.3rem 2rem 1.14rem 2rem; */
+
+    padding: 1rem;
+    color: #808080;
+}
+/* HEADER BUTTON */
+button.contact-us {
+    background-color: chocolate;
+
+    border: 0.5px solid #808080;
+    border-radius: 10px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    /* 4 rem is for pc */
+}
+
+button.contact-us a:hover {
+    color: rgb(36, 54, 110);
+    text-decoration: underline;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+span.shop-name {
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(55, 83, 173);
+    margin-left: 1rem;
+    /* 4 rem is for pc */
+}
+
+span.shop-name:hover {
+    color: #0000ff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.shop-name sub {
+    font-size: 25px;
+}
+
+/* SECTION */
+section.main-body1 {
+    min-width: 100%;
+    min-height: 80rem;
+    text-align: center;
+    /* background-color: rgb(220, 212, 202); */
+}
+
+p #menu-link:hover {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 1.25rem;
+    line-height: 2rem;
+}
+
+footer h2 {
+    color: rgb(55, 83, 173);
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,40 @@
 
     <link rel="stylesheet" href="../css/style_practice.css">
 </head>
-<body style="background-color: black;">
+
+<body style="background-color: rgb(172, 181, 182);">
+    <!-- <header style="height: 10rem; border: 3px solid black;">header!!</header> -->
     <h1>Title in H1</h1>
-    <a href="practice_2.html" > Click here for introductions! </a>
+    <a href="practice_2.html"> Click here for introductions! </a>
+
+    <!-- CURRENT TIME GOES HERE -->
+    <p id="current-time" style="font-size: 2rem; color: darkblue;"><strong id="current-time">EYY</strong></p>
+
+
+    <form class="form1" action="practice_2.html">
+        <legend>Title for the form</legend>
+        <input type="text" name="first-name" id="first-name" placeholder="email or phone number">
+        <input type="checkbox" name="remember" id="remember" checked>
+        <label id="checkbox-lbl" for="remember">Remember my password</label>
+        <input type="checkbox" name="dontremember" id="dont-remember">
+        <label id="checkbox-lbl" for="dontremember">DONT remember my password</label>
+        <button class="submit-btn" id="submit-btn" type="submit">Register</button>
+
+        <p>This is the radio button</p>
+        <input type="radio" name="yes-no" value="yes" id="yes" checked>
+        <label class="yes-lbl" for="yes">Yes</label>
+        <input type="radio" name="yes-no" value="no" id="no">
+        <label class="no-lbl" for="no">No</label>
+
+        <select name="os" id="os-select">
+            <option value="1">Windows</option>
+            <option value="2">macOS</option>
+            <option value="3">Linux</option>
+        </select>
+    </form>
+
+    <script src="../javascript/script.js"></script>
+
 </body>
+
 </html>
