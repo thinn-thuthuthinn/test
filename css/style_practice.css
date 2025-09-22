@@ -1,0 +1,32 @@
+a:link, a:visited{
+    color: rgb(4, 139, 139);
+}
+
+a:hover{
+    color:firebrick;
+}
+
+a{
+    color: darksalmon;
+}
+
+h1, h2{
+    color: crimson;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+
+th, td {
+    text-align: center;
+    background-color: cadetblue;
+    border: solid 3px black;
+}
+
+table {
+    background-color: grey;
+    color: black;
+    border: dotted 2px white;
+    /* border-color: black; */
+}
