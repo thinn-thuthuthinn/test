@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-    <html lang="ja">
+<html lang="ja">
 
-    <head>
-        <title>JavaScript</title>
-        <script>
-            let x = 4;
-            let y = 3;
-            let z = x + y;
-            console.log('x = ' + x);
-            console.log('y = ' + y);
-            console.log('z = ' + z); 
-        </script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript test</title>
 
-    <body>
+    <link rel="stylesheet" href="example_style.css">
+</head>
 
-        
-    </body>
+<body>
+    <div class="container">
+        <p id="sample-text">sample text</p>
+    </div>
 
-    </html>
+    <input class="typing-area" type="text" name="action" id="type-in-text" placeholder="type something here! ~">
+    <button type="button" class="btn-write" id="btn-write">Write</button>
+    <button class="btn-clear" id="btn-clear">Clear</button>
+    
+    <input type="date" name="chosen-date">
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
