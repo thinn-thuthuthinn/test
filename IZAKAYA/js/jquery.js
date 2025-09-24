@@ -6,14 +6,12 @@ const idv_characters = [
     { name: "Orpheus", age: 29, gender: "male"},
     { name: "Melly", age: 21, gender: "female"}];
 
-console.log(idv_characters[1].name);
-
-if(idv_characters[1].name == "Orpheus"){
-    
-}
-let x = 10;
+let x = 2;
 let y = 4;
-console.log(x += y);
+// console.log(x += y);
+
+const arr2 = Array.from({length: x}, () => new Array(y).fill("ehe"));
+console.log(arr2.join(" , "));
 
 const arr = ["no.1", "no.2", "no.3", "no.4"];
 // arr.forEach(arr => console.log(arr));
