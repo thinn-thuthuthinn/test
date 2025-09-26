@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery_kakuninmondai</title>
+
+    <script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+<body>
+    <h1 id="test">Full Name: Alice Deross</h1>
+    <hr />
+    <p>Born in 19xx</p>
+    <p>Went to Oletus High</p>
+    <p>Favorite Food</p>
+    <ul>
+        <li><a href="http://...">Ice Soda</a></li>
+        <li>Chocolate Cream Cake</li>
+        <li>Strawberry Shortcake</li>
+        <li>Sparkle Sea Latte</li>
+    </ul>
+    <a href="http://...">Alice's blog post</a>
+
+    <script>
+
+        $(function() {
+            let x = $("#test");
+            console.log(x.text());
+            
+            x.text("Orpheus Deross");
+            $("p:last").css("color", "red");
+        });
+
+        // $(document).ready(function() {
+            
+        // });
+    </script>
+</body>
+</html>

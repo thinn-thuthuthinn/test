@@ -6,16 +6,19 @@
     <title>This is JQuery...</title>
 
     <link rel="stylesheet" href="../css/style_practice.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-
-    <script>
-        $(function(){
-            $('#bodytitle').text('used jQuery library instead of writing the JavaScript code!');
-        })
-    </script>
-</script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="bodytitle"><h1></h1></div>
+    <h1 id="title"></h1>
+    <h2 id="subtitle"></h2>
+    <p id="article"></p>
+    <p id="article-2"></p>
+
+    <script>
+        $("#title").text("This is the beginning of using jQuery Library.");
+        $("#subtitle").text("A subtitle! :D");
+        $("#article").text("What should I write here...");
+        
+    </script>
 </body>
 </html>

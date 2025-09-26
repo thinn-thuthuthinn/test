@@ -10,37 +10,109 @@
 </head>
 
 <body>
+    <div class="bodi">
 
-    <div class="main">
-        <input type="text" name="" class="display" id="display" disabled>
+        <!-- exercised -->
+        <h2 style="margin-top: 10rem;">EXEC()</h2>
+        <div class="main">
+            <input type="text" class="display" id="display3" placeholder="0" readonly>
 
-        <div class="container">
-            <button onclick="clearAll()">AC</button>
-            <button>C</button>
-            <button>%</button>
-            <button>+</button>
+            <div class="container">
+                <button type="button" class="numbers">AC</button>
+                <button type="button" class="operator">DEL</button>
+                <button type="button" class="operator">%</button>
+                <button type="button" class="operator">+</button>
 
-            <button class="button" onclick="appendValue()" data-value="1">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>-</button>
+                <button type="button">1</button>
+                <button type="button" >2</button>
+                <button type="button" >3</button>
+                <button type="button" class="operator" >-</button>
 
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>x</button>
+                <button type="button" >4</button>
+                <button type="button" >5</button>
+                <button type="button" >6</button>
+                <button type="button" class="operator" >x</button>
 
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>÷</button>
-            
-            <button>.</button>
-            <button>0</button>
-            <button>+</button>
-            <button>=</button>
+                <button type="button" >7</button>
+                <button type="button" >8</button>
+                <button type="button" >9</button>
+                <button type="button" class="operator" >÷</button>
+
+                <button type="button" >0</button>
+                <button type="button">00</button>
+                <button type="button">.</button>
+                <button type="button" class="operator">=</button>
+            </div>
         </div>
-    </div>
+
+        <!-- A NORMAL CALCULATOR -->
+        <h2>NRML()</h2>
+        <div class="main">
+            <input type="text" class="display" id="display2" placeholder="0" readonly>
+
+            <div class="container">
+                <button type="button" class="numbers" onclick="clearAll_2()">AC</button>
+                <button style="background-color: black;" type="button"></button>
+                <button type="button" class="operator" onclick="get_numbers('%')">%</button>
+                <button type="button" class="operator" onclick="get_numbers('+')">+</button>
+
+                <button type="button" onclick="get_numbers('1')">1</button>
+                <button type="button" onclick="get_numbers('2')">2</button>
+                <button type="button" onclick="get_numbers('3')">3</button>
+                <button type="button" class="operator" onclick="get_numbers('-')">-</button>
+
+                <button type="button" onclick="get_numbers('4')">4</button>
+                <button type="button" onclick="get_numbers('5')">5</button>
+                <button type="button" onclick="get_numbers('6')">6</button>
+                <button type="button" class="operator" onclick="get_numbers('*')">x</button>
+
+                <button type="button" onclick="get_numbers('7')">7</button>
+                <button type="button" onclick="get_numbers('8')">8</button>
+                <button type="button" onclick="get_numbers('9')">9</button>
+                <button type="button" class="operator" onclick="get_numbers('/')">÷</button>
+
+                <button type="button" onclick="get_numbers('0')">0</button>
+                <button type="button" onclick="get_numbers('00')">00</button>
+                <button type="button" onclick="get_numbers('0.')">.</button>
+                <button type="button" class="operator" onclick="operation_2()">=</button>
+            </div>
+        </div>
+
+        <!-- EVAL() -->
+        <h2>EVAL()</h2>
+        <div class="main">
+            <input type="text" class="display" id="display" placeholder="0" readonly>
+
+            <div class="container">
+                <button type="button" onclick="clearAll()">AC</button>
+                <button type="button" onclick="extract()">C</button>
+                <button type="button" class="operator" onclick="appendValue('%')">%</button>
+                <button type="button" class="operator" onclick="appendValue('+')">+</button>
+
+                <button type="button" onclick="appendValue('1')">1</button>
+                <button type="button" onclick="appendValue('2')">2</button>
+                <button type="button" onclick="appendValue('3')">3</button>
+                <button type="button" class="operator" onclick="appendValue('-')">-</button>
+
+                <button type="button" onclick="appendValue('4')">4</button>
+                <button type="button" onclick="appendValue('5')">5</button>
+                <button type="button" onclick="appendValue('6')">6</button>
+                <button type="button" class="operator" onclick="appendValue('*')">x</button>
+
+                <button type="button" onclick="appendValue('7')">7</button>
+                <button type="button" onclick="appendValue('8')">8</button>
+                <button type="button" onclick="appendValue('9')">9</button>
+                <button type="button" class="operator" onclick="appendValue('/')">÷</button>
+
+                <button type="button">.</button>
+                <button type="button" onclick="appendValue('0')">0</button>
+                <button type="button" onclick="appendValue('00')">00</button>
+                <button type="button" class="operator" onclick="operation()">=</button>
+            </div>
+
+        </div>
+
+        <script src="calculator_script.js"></script>
 </body>
 
 </html>

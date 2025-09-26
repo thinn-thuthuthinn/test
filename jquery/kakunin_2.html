@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery_kakuninmondai 2</title>
+
+    <script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+<body>
+    <h1>お問合せフォーム</h1> 
+<hr /> 
+<form> 
+<p>名前：<input type="text" name="namae" size="40" maxlength="20" /></p> 
+<p> 
+都道府県： 
+<select name="todohuken"> 
+<option hidden>選択してください</option> 
+<option value="1">東京都</option> 
+<option value="2">神奈川県</option> 
+<option value="3">千葉県</option> 
+<option value="4">栃⽊県</option> 
+<option value="5">群⾺県</option> 
+</select> 
+</p> 
+<p> 
+性別： 
+<label><input type="radio" name="gender" value="man" />男性</label> 
+<label><input type="radio" name="gender" value="woman" />女性</label> 
+<label><input type="radio" name="gender" value="other" />未回答</label> 
+</p> 
+<p> 
+6 / 27
+jQuery_Bootstrap基礎.md
+質問種別： 
+2025-03-27
+ <label 
+          ><input 
+type="checkbox" 
+name="kinds" 
+value="contents" 
+          />商品の内容</label 
+        > 
+<label 
+          ><input type="checkbox" name="kinds" value="method" />配送⽅法</label 
+        > 
+<label 
+          ><input type="checkbox" name="kinds" value="other" />その他</label 
+        > 
+</p> 
+<p>質問内容：</p> 
+<textarea 
+name="question_contents" 
+size="40" 
+rows="5" 
+cols="50" 
+      ></textarea> 
+</form>
+
+    <script>
+
+        $(function() {
+            let x = $("#test");
+            console.log(x.text());
+            
+            x.text("Orpheus Deross");
+            $("p:last").css("color", "red");
+        });
+
+        // $(document).ready(function() {
+            
+        // });
+    </script>
+</body>
+</html>
