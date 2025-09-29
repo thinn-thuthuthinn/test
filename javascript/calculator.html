@@ -6,14 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 演習</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
     <link rel="stylesheet" href="calculator_style.css">
 </head>
 
 <body>
     <div class="bodi">
 
+        <!-- jquery -->
+        <h2 class="JHeader" style="margin-top: 40rem;">JQUE()</h2>
+        <div class="main">
+            <input type="text" class="display" id="Jdisplay" placeholder="0" readonly>
+
+            <div class="container">
+                <button type="button" class="numbers">AC</button>
+                <button type="button">DEL</button>
+                <button type="button" class="operator" onclick="get_numbers('%', this)">%</button>
+                <button type="button" class="operator" onclick="get_numbers('+', this)">+</button>
+
+                <button type="button" onclick="get_numbers('1')">1</button>
+                <button type="button" onclick="get_numbers('2')">2</button>
+                <button type="button" onclick="get_numbers('3')">3</button>
+                <button type="button" class="operator" onclick="get_numbers('-', this)">-</button>
+
+                <button type="button" onclick="get_numbers('4')">4</button>
+                <button type="button" onclick="get_numbers('5')">5</button>
+                <button type="button" onclick="get_numbers('6')">6</button>
+                <button type="button" class="operator" onclick="get_numbers('*', this)">x</button>
+
+                <button type="button" onclick="get_numbers('7')">7</button>
+                <button type="button" onclick="get_numbers('8')">8</button>
+                <button type="button" onclick="get_numbers('9')">9</button>
+                <button type="button" class="operator" onclick="get_numbers('/', this)">÷</button>
+
+                <button type="button" onclick="get_numbers('0')">0</button>
+                <button type="button" onclick="get_numbers('00')">00</button>
+                <button type="button" onclick="get_numbers('0.')">.</button>
+                <button type="button" class="operator" onclick="operation_2()">=</button>
+            </div>
+        </div>
+
         <!-- exercised -->
-        <h2 style="margin-top: 10rem;">EXEC()</h2>
+        <h2>EXEC()</h2>
         <div class="main">
             <input type="text" class="display" id="display3" placeholder="0" readonly>
 
@@ -53,23 +87,23 @@
             <div class="container">
                 <button type="button" class="numbers" onclick="clearAll_2()">AC</button>
                 <button style="background-color: black;" type="button"></button>
-                <button type="button" class="operator" onclick="get_numbers('%')">%</button>
-                <button type="button" class="operator" onclick="get_numbers('+')">+</button>
+                <button type="button" class="operator" onclick="get_numbers('%', this)">%</button>
+                <button type="button" class="operator" onclick="get_numbers('+', this)">+</button>
 
                 <button type="button" onclick="get_numbers('1')">1</button>
                 <button type="button" onclick="get_numbers('2')">2</button>
                 <button type="button" onclick="get_numbers('3')">3</button>
-                <button type="button" class="operator" onclick="get_numbers('-')">-</button>
+                <button type="button" class="operator" onclick="get_numbers('-', this)">-</button>
 
                 <button type="button" onclick="get_numbers('4')">4</button>
                 <button type="button" onclick="get_numbers('5')">5</button>
                 <button type="button" onclick="get_numbers('6')">6</button>
-                <button type="button" class="operator" onclick="get_numbers('*')">x</button>
+                <button type="button" class="operator" onclick="get_numbers('*', this)">x</button>
 
                 <button type="button" onclick="get_numbers('7')">7</button>
                 <button type="button" onclick="get_numbers('8')">8</button>
                 <button type="button" onclick="get_numbers('9')">9</button>
-                <button type="button" class="operator" onclick="get_numbers('/')">÷</button>
+                <button type="button" class="operator" onclick="get_numbers('/', this)">÷</button>
 
                 <button type="button" onclick="get_numbers('0')">0</button>
                 <button type="button" onclick="get_numbers('00')">00</button>
@@ -80,7 +114,7 @@
 
         <!-- EVAL() -->
         <h2>EVAL()</h2>
-        <div class="main">
+        <div style="margin-bottom: 3rem;" class="main">
             <input type="text" class="display" id="display" placeholder="0" readonly>
 
             <div class="container">

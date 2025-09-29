@@ -43,7 +43,7 @@ body{
     grid-template-columns: repeat(4,1fr);
 }
 
-button{
+button, .operator{
     width: 60px;
     height: 40px;
     padding: 10px;
@@ -57,3 +57,7 @@ button:hover{
     background-color: grey;
 }
 
+.operator.active{
+    background-color: rgb(49, 60, 101);
+    color: white;
+}
