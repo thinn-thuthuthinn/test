@@ -16,7 +16,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <p> 
 都道府県： 
 <select id="city-selection" name="todohuken"> 
-<option hidden>選択してください</option> 
+<option value="" hidden>選択してください</option> 
 <option value="1">東京都</option> 
 <option value="2">神奈川県</option> 
 <option value="3">千葉県</option> 
@@ -53,16 +53,68 @@ cols="50"
       ></textarea> 
 </form>
 
-    <script>
-        const $toggleElements = $("#name-bar, #city-selection ,input[name='gender'], input[name='kinds'],#text-area");
+ <div class="data"></div>
+ <div class="data"></div>
+ <div class="data"></div>
+ <div class="data"></div>
+ <div class="data"></div>
+ <div class="data"></div>
+ <div class="data"></div>
 
-        /* KAKUNIN 4 / CLICK EVENT HANDLING */
+    <script>
+        let count = 0;
+        
+        /* KAKUNIN 5 / SELECTION CHANGE TRIGGER */
         $(document).ready(function() {
+
+            // クラス名dataのテキストをループで変更する 
+            $(".data").each(function (index, element) { 
+            $(element).text("要素：" + index); });
+
+            $("#city-selection").change(function() {
+                const selectedValue = $(this).val();
+                console.log(`Selection changed! You selected: ${selectedValue}`);
+                selectedValue == 1 ? $("#name-bar").prop("disabled", true) : $("#name-bar").prop("disabled", false);
+            });
+
+            $("input[name='gender']").change(function() {
+                const selectedGender = $(this).val();
+                console.log(`You selected: ${selectedGender}`);
+            });
+
+            $("input[name='kinds']").change(function() {
+                if($(this).is(':checked')) {
+                    const item = $("input[name='kinds']:checked").map(function() { return $(this).val();}).get();
+                    console.log(`You checked: ${item}`);
+                } else {
+                    // method for when the checked items are unchecked!
+                }
+            });
+        })
+
+        /* KAKUNIN 4 / CLICK EVENT HANDLING 
+        $(document).ready(function() {
+            // ADDING BUTTONS OUTSIDE OF THE PARENT FORM
             $("#parent").after("<button type='button' id='confirm-btn'>確定</button>", "<button type='button' id='clear-btn'>クリア</button>", "<button type='button' id='send-btn'>送信</button>");
-            
+
+            // WRAPPING THEM IN A BLOCK LEVEL ELEMENT TO USE 'type=reset' BUTTON
+            // const buttons = `
+            //     <div>
+            //         <button type='button' id='confirm-btn'>確定</button>
+            //         <button type='reset' id='clear-btn'>クリア</button>
+            //         <button type='button' id='send-btn'>送信</button>
+            //     </div>`;
+            // $("#parent").append(buttons);
+
+            const $toggleElements = $("#name-bar, #city-selection ,input[name='gender'], input[name='kinds'],#text-area, #clear-btn, #send-btn");
+
             $("#confirm-btn").on('click', () => {
                 // TYPE 2
-                $toggleElements.prop("disabled", true);
+                count+=1;
+                count%2==0 ? $toggleElements.prop("disabled", false) : $toggleElements.prop("disabled", true);
+                
+                const msg = `Is the current count even? -> ${count%2==0 ? "Yes, it is even!": "No, it is not..."}.`;
+                console.log(msg);
 
                 // TYPE 1
                 // $("#name-bar").prop("disabled", true);
@@ -73,7 +125,43 @@ cols="50"
                 // $("input[name='kinds']").prop("disabled", true);
                 // $("#text-area").prop("disabled", true);
             });
+
+            // WRITE THIS MANUAL CODE
+            // OR, JUST USE TYPE='RESET' FOR BUTTON IN HTML
+            // OR, USE .TRIGGER('RESET') IN JQUERY
+            // $("#clear-btn").on('click', () => {
+            //     $("#name-bar").val("");
+            //     $("#city-selection").val("0");
+            //     $("input[name='gender']").prop("checked", false);
+            //     $("input[name='kinds']").prop("checked", false);
+            //     $("#text-area").val("");
+            // });
+
+            $("#clear-btn").on('click', () => {
+                $("#parent").trigger('reset');
+            });
+
+            $("#send-btn").on('click', () => {
+                const txt = $("#name-bar").val();
+                console.log(`name: ${txt=="" ? "no input...": txt}`);
+
+                const location_index = $("#city-selection option:selected").val();
+                const location = $("#city-selection option:selected").text();
+                const confirm_text = location_index ? `location: ${location_index}, ${location}` : "location: selection not made...";
+                console.log(confirm_text);
+
+                // const isChecked = $("input[name='gender']").is(':checked');
+                const gender = $("input[name='gender']:checked").val();
+                console.log(`selected gender: ${gender ?? "gender not chosen..."}`);
+
+                const type = $("input[name='kinds']:checked").map(function() { return $(this).val();}).get();
+                console.log(`selected mail type: ${type=="" ? "no checked box..." : type}`);
+
+                const txtarea = $("#text-area").val();
+                console.log(`question: ${txtarea=="" ? "no content..." : txtarea}`);
+            });
         });
+        */
 
         // creating and appending new children
         /* KAKUNIN 3 / APPEND, PREPEND, AFTER, BEFORE
@@ -102,6 +190,7 @@ cols="50"
         // document.querySelector("select[name='todohuken']").value = '1';
         // document.querySelector("[name='gender'][value='man']").checked = true;
 
+        // RANDOM KAKUNIN
         // $(function() {
         //     let x = $("#test");
         //     console.log(x.text());

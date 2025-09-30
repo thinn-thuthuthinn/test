@@ -40,6 +40,7 @@ function get_numbers(x, clickedBtn) {
         return;
         // step 2: choose an operator
     } else if (operators.includes(x) && firstOperand != null) {
+        // OPTIONAL CHAINING
         prevBtn?.classList.remove("active");
         prevBtn = clickedBtn;
         prevBtn.classList.add("active");
