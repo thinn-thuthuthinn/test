@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery_kakuninmondai 2</title>
+    <title>jQuery_kakuninmondai_shuu</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
 </head>
@@ -15,7 +15,7 @@
         <p>名前：<input type="text" id="name-bar" name="namae" size="40" maxlength="20" /></p> 
         
         <p> 都道府県： 
-            <select id="city-selection" name="todohuken"> 
+            <select id="todohuken-selection" name="todohuken"> 
                 <option value="" hidden>選択してください</option> 
                 <option value="1">東京都</option> 
                 <option value="2">神奈川県</option> 
@@ -44,9 +44,9 @@
     <script>
         let count = 0;
         
-        /* KAKUNIN 5 / SELECTION CHANGE TRIGGER */
+        /* KAKUNIN 5 / セレクトの値が変更されたとき発生しるイベント */
         $(document).ready(function() {
-            $("#city-selection").change(function() {
+            $("#todohuken-selection").change(function() {
                 const selectedValue = $(this).val();
                 console.log(`Selection changed! You selected: ${selectedValue}`);
                 selectedValue == 1 ? $("#name-bar").prop("disabled", true) : $("#name-bar").prop("disabled", false);
@@ -67,112 +67,106 @@
             });
         })
 
-        // KAKUNIN 4 / CLICK EVENT HANDLING 
+        /*/ KAKUNIN 4 / クリックイベント、ボタンの操作
         $(document).ready(function() {
-            // ADDING BUTTONS OUTSIDE OF THE PARENT FORM
+
+            // フォームの外にボタンを作る
             $("#parent").after("<button type='button' id='confirm-btn'>確定</button>", "<button type='button' id='clear-btn'>クリア</button>", "<button type='button' id='send-btn'>送信</button>");
 
-            // WRAPPING THEM IN A BLOCK LEVEL ELEMENT TO USE 'type=reset' BUTTON
-            // const buttons = `
+            // 確定ボタンの機能
+            $("#confirm-btn").on('click', () => {
+                // 解決方法１
+                const $toggleElements = $("#name-bar, #todohuken-selection ,input[name='gender'], input[name='kinds'],#text-area, #clear-btn, #send-btn");
+
+                count+=1;
+                count%2==0 ? $toggleElements.prop("disabled", false) : $toggleElements.prop("disabled", true);
+                
+                // 偶数か奇数か確認
+            //      const msg = `今の番号は? -> ${count%2==0 ? "偶数です!全ての項⽬が編集可となります": "奇数です...全ての項⽬が編集不可になります"}.`;
+            //      console.log(msg);
+
+                // 解決方法２
+                // 各項目を編集可か編集不可かする
+            //      $("#name-bar").prop("disabled", true);
+            //      $("select[name='todohuken']").prop("disabled", true);
+            //      $("input[name='gender']").prop("disabled", true);
+            //      $("input[name='kinds']").prop("disabled", true);
+            //      $("#text-area").prop("disabled", true);
+            });
+
+            // クリアブタンの機能
+            $("#clear-btn").on('click', () => {
+                // 解決方法１
+                $("#parent").trigger('reset');
+
+                // 解決方法２
+            //     $("#name-bar").val("");
+            //     $("#todohuken-selection").val("0");
+            //     $("input[name='gender']").prop("checked", false);
+            //     $("input[name='kinds']").prop("checked", false);
+            //     $("#text-area").val(""); 
+
+                // 解決方法３
+                // フォームの中にボタンを作ってhtml側からの'type=reset'をつかう
+            //     const buttons = `
             //     <div>
             //         <button type='button' id='confirm-btn'>確定</button>
             //         <button type='reset' id='clear-btn'>クリア</button>
             //         <button type='button' id='send-btn'>送信</button>
             //     </div>`;
-            // $("#parent").append(buttons);
+            //     $("#parent").append(buttons);
 
-            const $toggleElements = $("#name-bar, #city-selection ,input[name='gender'], input[name='kinds'],#text-area, #clear-btn, #send-btn");
-
-            $("#confirm-btn").on('click', () => {
-                // TYPE 2
-                count+=1;
-                count%2==0 ? $toggleElements.prop("disabled", false) : $toggleElements.prop("disabled", true);
-                
-                const msg = `Is the current count even? -> ${count%2==0 ? "Yes, it is even!": "No, it is not..."}.`;
-                console.log(msg);
-
-                // TYPE 1
-                // $("#name-bar").prop("disabled", true);
-                // // $("select[name='todohuken']").prop("disabled", true);
-                // // OR
-                // $("#city-selection").prop("disabled", true);
-                // $("input[name='gender']").prop("disabled", true);
-                // $("input[name='kinds']").prop("disabled", true);
-                // $("#text-area").prop("disabled", true);
             });
 
-            // WRITE THIS MANUAL CODE
-            // OR, JUST USE TYPE='RESET' FOR BUTTON IN HTML
-            // OR, USE .TRIGGER('RESET') IN JQUERY
-            // $("#clear-btn").on('click', () => {
-            //     $("#name-bar").val("");
-            //     $("#city-selection").val("0");
-            //     $("input[name='gender']").prop("checked", false);
-            //     $("input[name='kinds']").prop("checked", false);
-            //     $("#text-area").val("");
-            // });
-
-            $("#clear-btn").on('click', () => {
-                $("#parent").trigger('reset');
-            });
-
+            // 送信ボタンの機能
+            // インプット確認の上コンソールにだす
             $("#send-btn").on('click', () => {
                 const txt = $("#name-bar").val().trim();
-                console.log(`name: ${txt=="" ? "no input...": txt}`);
+                console.log(`名前: ${txt=="" ? "インプットなし...": txt}`);
 
-                const location_index = $("#city-selection option:selected").val();
-                const location = $("#city-selection option:selected").text();
-                const confirm_text = location_index ? `location: ${location_index}, ${location}` : `location: selection not made...`;
+                const location_index = $("#todohuken-selection option:selected").val();
+                const location = $("#todohuken-selection option:selected").text();
+                const confirm_text = location_index ? `都道府県: ${location_index}, ${location}` : `都道府県: まだ選択されていません...`;
                 console.log(confirm_text);
 
-                // const isChecked = $("input[name='gender']").is(':checked');
                 const gender = $("input[name='gender']:checked").val();
-                console.log(`selected gender: ${gender ?? "gender not chosen..."}`);
+                console.log(`性別: ${gender ?? "まだ選択されていません..."}`);
 
                 const type = $("input[name='kinds']:checked").map(function() { return $(this).val();}).get();
-                console.log(`selected mail type: ${type=="" ? "no checked box..." : type}`);
+                console.log(`質問種別: ${type=="" ? "まだ選択されていません..." : type}`);
 
                 const txtarea = $("#text-area").val().trim();
-                console.log(`question: ${txtarea=="" ? "no content..." : txtarea}`);
+                console.log(`質問内容: ${txtarea=="" ? "インプットなし..." : txtarea}`);
             });
         });
         // */
 
-        // creating and appending new children
-        /* KAKUNIN 3 / APPEND, PREPEND, AFTER, BEFORE
+        /* KAKUNIN 3 / コントロールの追加　APPEND, PREPEND, AFTER, BEFORE
         $(document).ready(function() {
             $("#name-bar").after("<p> 郵便番号：<input type='text' id='postal-code-area' name='postal-code' size='40' maxlength='20'></p>");
-            let control2 = $("<p> 電話番号：<input type='text' id='phone-number-box' name='phone-number' size='40' maxlength='20'></p>");
-            $("#city-selection").after(control2);
-            let control3 = $("<option value='6'>茨城県</option>");
-            $("#city-selection").append(control3);
+            
+            let control2 = "<p> 電話番号：<input type='text' id='phone-number-box' name='phone-number' size='40' maxlength='20'></p>";
+            $("#todohuken-selection").after(control2);
+            
+            let control3 = "<option value='6'>茨城県</option>";
+            $("#todohuken-selection").append(control3);
         });
         */
         
-        /*  KAKUNIN 2 / SETTING DEFAULT VALUES
+        /*  KAKUNIN 2 / デフォルト値を設定する
         $(function() {
-            $("#name-bar").val("eheheheh");
-            $("#city-selection").val("1");
+            $("#name-bar").val("名前です");
+            $("#todohuken-selection").val("1");
             $("input[name='gender'][value='other']").prop("checked", true);
             $("input[name='kinds']").prop("checked",true);
             $("textarea[name='question_contents']").prop("disabled",true); 
         });
-
         */
 
-        // JS ver.
-        // document.getElementById("name-bar").value = "hehe used js";
+        // ピュアJSの形
+        // document.getElementById("name-bar").value = "JavaScript使って名前を付けました";
         // document.querySelector("select[name='todohuken']").value = '1';
         // document.querySelector("[name='gender'][value='man']").checked = true;
-
-        // RANDOM KAKUNIN
-        // $(function() {
-        //     let x = $("#test");
-        //     console.log(x.text());
-            
-        //     x.text("Orpheus Deross");
-        //     $("p:last").css("color", "red");
-        // });
     </script>
 </body>
 </html>

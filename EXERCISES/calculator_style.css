@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    margin-top: 3rem;
+}
+
+h2.JHeader{
+    margin-top: 45rem;
+}
+
+body{
+    height: 100vh;
+    background-color: #eae3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    position: relative;
+    background-color: #f5f5f5;
+    max-width: 286px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 10px;
+}
+
+.display{
+    width: 100%;
+    height: 45px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    border: 2px solid black;
+    padding: 10px 20px;
+    background-color: #fff;
+    /* width: 300px; */
+    margin: 5px;
+    border-radius: 10px;
+    text-align: right;
+    overflow-wrap: break-word;
+}
+
+.container{
+    display: grid;
+    gap: 3px 1px;
+    grid-template-columns: repeat(4,1fr);
+}
+
+button, .operator{
+    width: 60px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+
+.operator.active{
+    background-color: rgb(49, 60, 101);
+    color: white;
+}
