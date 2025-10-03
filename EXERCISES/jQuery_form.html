@@ -44,7 +44,7 @@
     <script>
         let count = 0;
         
-        /* KAKUNIN 5 / セレクトの値が変更されたとき発生しるイベント */
+        /* KAKUNIN 5 / セレクトの値が変更されたとき発生しるイベント 
         $(document).ready(function() {
             $("#todohuken-selection").change(function() {
                 const selectedValue = $(this).val();
@@ -66,13 +66,26 @@
                 }
             });
         })
+        */
 
-        /*/ KAKUNIN 4 / クリックイベント、ボタンの操作
+        // KAKUNIN 4 / クリックイベント、ボタンの操作
         $(document).ready(function() {
-
+            // 方法１
             // フォームの外にボタンを作る
-            $("#parent").after("<button type='button' id='confirm-btn'>確定</button>", "<button type='button' id='clear-btn'>クリア</button>", "<button type='button' id='send-btn'>送信</button>");
+            // $("#parent").after("<button type='button' id='confirm-btn'>確定</button>", "<button type='button' id='clear-btn'>クリア</button>", "<button type='button' id='send-btn'>送信</button>");
 
+            // 方法２
+            // フォームの中にボタンを作る
+            // クリア機能も含む
+            const buttons = `
+                <div>
+                    <button type='button' id='confirm-btn'>確定</button>
+                    <button type='reset' id='clear-btn'>クリア</button>
+                    <button type='button' id='send-btn'>送信</button>
+                </div>`;
+                $("#parent").append(buttons);
+
+            
             // 確定ボタンの機能
             $("#confirm-btn").on('click', () => {
                 // 解決方法１
@@ -97,7 +110,7 @@
             // クリアブタンの機能
             $("#clear-btn").on('click', () => {
                 // 解決方法１
-                $("#parent").trigger('reset');
+                // $("#parent").trigger('reset');
 
                 // 解決方法２
             //     $("#name-bar").val("");
@@ -108,13 +121,6 @@
 
                 // 解決方法３
                 // フォームの中にボタンを作ってhtml側からの'type=reset'をつかう
-            //     const buttons = `
-            //     <div>
-            //         <button type='button' id='confirm-btn'>確定</button>
-            //         <button type='reset' id='clear-btn'>クリア</button>
-            //         <button type='button' id='send-btn'>送信</button>
-            //     </div>`;
-            //     $("#parent").append(buttons);
 
             });
 
@@ -141,7 +147,7 @@
         });
         // */
 
-        /* KAKUNIN 3 / コントロールの追加　APPEND, PREPEND, AFTER, BEFORE
+        /*/ KAKUNIN 3 / コントロールの追加　APPEND, PREPEND, AFTER, BEFORE
         $(document).ready(function() {
             $("#name-bar").after("<p> 郵便番号：<input type='text' id='postal-code-area' name='postal-code' size='40' maxlength='20'></p>");
             

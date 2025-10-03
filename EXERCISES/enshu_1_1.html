@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQueryカレンダー</title>
+
+    <link rel="stylesheet" href="enshu_1_1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+<body>
+    <main>
+        <!-- .each() method -->
+        <h2>2025年4月のカレンダー</h2>
+        <br><hr><br>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+        <p class="date"></p>
+    </main>
+
+    <script>
+        $(".date").each(function (index, element) {
+            $(this).text(index + 1+ "日");
+            if((index+1)%7 === 6) {
+                // 書き方１
+                // $(element).addClass("red-highlight");
+
+                // 書き方２
+                $(this).css("background-color","rgb(212, 79, 83)");
+            }
+            if((index+1)%7 === 5) {
+                // 書き方１
+                // $(element).addClass("blue-highlight");
+
+                // 書き方２
+                $(this).css("background-color","rgb(127, 154, 202)");
+            }
+        }); 
+
+        // $("document").ready(function() {
+        //     console.log($(".date").text());
+        // });
+    </script>
+</body>
+</html>

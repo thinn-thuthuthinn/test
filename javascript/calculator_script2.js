@@ -8,38 +8,39 @@ let prevBtn = null;
 // USING jQUERY
 
 $(function(){
-    let test = $("#Jdisplay");
-    console.log(test.text());
-    console.log(test.attr("id"));
-    console.log(test.attr("class"));
-    console.log("This is the style: "+ $(".JHeader").attr("style"));
-    console.log("This is the top margin: " + $(".JHeader").css("marginTop"));
 });
 
-$("#Jdisplay").val("hax");
-$("#Jdisplay").prop("readonly", false);
 
+// NRML()
 
-// THE NORMAL WAY
+const operators = ["+", "-", "%", "*", "/"];
+
 function clearAll_2() {
     output2.value = "";
     operator = null;
     firstOperand = null;
     secondOperand = null;
-    operatorBtn.forEach(button => { button.classList.remove("active") });
+    operatorBtn.forEach( button => { button.classList.remove("active")});
     prevBtn = null;
 }
 
-const operators = ["+", "-", "%", "*", "/"];
-
+//  x is the value parameter, clickedBtn is the object
 function get_numbers(x, clickedBtn) {
-    // zero's are not accepted before 1-9
-
-    //changing the css style of the selected operator
+    // preparatory step: 
+    // zero's are not accepted before integers 1-9
+    // operator is not accepted before integer input
     if (
-        (firstOperand == null) && (x === "00" || x === "0") ||
-        (firstOperand == null && operators.includes(x))) {
+        (!firstOperand) && (x === "00" || x === "0") ||
+        (!output2.value && operators.includes(x))) {
         return;
+
+        // && !operator && !firstOperand
+        // interim check: does the user want to continue with the previous result?
+    // } else if (operators.includes(x) && output2.value) {
+    //     operator = x;
+    //     firstOperand = output2.value;
+    //     return;
+
         // step 2: choose an operator
     } else if (operators.includes(x) && firstOperand != null) {
         // OPTIONAL CHAINING
@@ -47,12 +48,14 @@ function get_numbers(x, clickedBtn) {
         prevBtn = clickedBtn;
         prevBtn.classList.add("active");
 
-        // if (prevBtn != null) {
+        // 解決方法 2
+        // if (prevBtn) {
         //     prevBtn.classList.remove("active");
         // } 
 
         // operatorBtn.forEach( button => { button.classList.remove("active")});
         // clickedBtn.classList.add("active");
+
         operator = x;
 
         // step 3: enter second operand
@@ -67,12 +70,12 @@ function get_numbers(x, clickedBtn) {
             secondOperand = parseFloat(output2.value);
         }
     }
-    //  step 1: but the calculator restarts again
+    //  step 2: the calculator restarts again
     else if (firstOperand == null) {
         output2.value = x;
         firstOperand = parseFloat(output2.value);
     }
-    // step 1: append value to the first operand 
+    // step 2 variant: append value to the first operand 
     else {
         output2.value += x;
         firstOperand = parseFloat(output2.value);
@@ -101,12 +104,19 @@ function operation_2() {
                 result = firstOperand + secondOperand;
                 break;
         }
+
         output2.value = result;
+        
+        // unlimited usage.
+        // firstOperand = result;
+        // secondOperand = operator = null;
+
+        // one-time only.
         firstOperand = secondOperand = operator = null;
     }
 }
 
-// THE EVAL() WAY
+// EVAL()
 function clearAll() {
     output.value = "";
 }

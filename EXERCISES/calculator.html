@@ -14,6 +14,7 @@
     <div class="bodi">
 
         <!-- jqueryを使って作った電卓 -->
+        <!--
         <h2 class="JHeader">JQUE()</h2>
         <div class="main">
             <input type="text" class="display" id="Jdisplay" placeholder="0" readonly>
@@ -45,8 +46,10 @@
                 <button type="button" class="JOperator">=</button>
             </div>
         </div>
+        -->
 
         <!-- exercised -->
+        <!--
         <h2>EXEC()</h2>
         <div class="main">
             <input type="text" class="display" id="display3" placeholder="0" readonly>
@@ -78,9 +81,10 @@
                 <button type="button" class="operator">=</button>
             </div>
         </div>
+        -->
 
         <!-- A NORMAL CALCULATOR -->
-        <h2>NRML()</h2>
+        <h2 class="JHeader">NRML()</h2>
         <div class="main">
             <input type="text" class="display" id="display2" placeholder="0" readonly>
 
@@ -107,7 +111,7 @@
 
                 <button type="button" onclick="get_numbers('0')">0</button>
                 <button type="button" onclick="get_numbers('00')">00</button>
-                <button type="button" onclick="get_numbers('0.')">.</button>
+                <button type="button" onclick="get_numbers('.')">.</button>
                 <button type="button" class="operator" onclick="operation_2()">=</button>
             </div>
         </div>

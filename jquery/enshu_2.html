@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 住所検索</title>
+
+    <link rel="stylesheet" href="enshu_2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+<body>
+    <main>
+        <form action="submit">
+            <p class="display">郵便番号：<input type="text" name="postal-code" id="postal-code" required>
+            <button type="submit" id="search-btn">検索</button>
+            <button type="reset" id="clear-btn">クリア</button>
+         </p>
+         <p class="display" hidden>住所：<span id="display-span"></span></p>
+        </form>
+    </main>
+
+    <script>
+        $("document").ready(function() {
+            $("#clear-btn").click( () => {
+                $("#display-span").text("");
+            }) ;
+        });
+    </script>
+</body>
+</html>

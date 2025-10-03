@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQueryカレンダー 2</title>
+
+    <link rel="stylesheet" href="enshu_1_2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="header">
+            <input type="month" name="" id="month-selector">
+            <button type="button" id="show-btn">表示</button>
+            <button type="button" id="clear-btn">クリア</button>
+
+        </div>
+        <div class="back-ground">
+            <p id="showCurrentDate"></p>
+            <div class="calendar-grid" id="calendar-grid">
+                <div class="day-name">日曜日</div>
+                <div class="day-name">月曜日</div>
+                <div class="day-name">火曜日</div>
+                <div class="day-name">水曜日</div>
+                <div class="day-name">木曜日</div>
+                <div class="day-name">金曜日</div>
+                <div class="day-name">土曜日</div>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <script>
+        // will use input from calendar selector
+        let currentDay = new Date();
+        const today = new Date();
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const dayNames = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+        const $monthSelector = $("#month-selector");
+
+        function renderCalendar() {
+            let month = currentDay.getMonth();
+            let year = currentDay.getFullYear();
+            $("#showCurrentDate").text(`${monthNames[month]} ${year}`);
+
+            let firstDay = new Date(year, month, 1).getDay();
+            console.log(dayNames[firstDay] + " , index is: " + firstDay);
+            let daysInMonth = new Date(year, month+1, 0).getDate();
+            console.log(daysInMonth);
+
+            $("#calendar-grid").children().slice(7).remove();
+
+            for(let i=0; i<firstDay; i++) {
+                $("#calendar-grid").append(`<div class="date-cell empty-cell"></div>`);
+            }
+
+            for(let i=0; i<=daysInMonth; i++) {
+                $("#calendar-grid").append(`<div class="date-cell"></div>`);
+            }
+        }
+
+        function formatDateMonthForSelector(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            // return `${year}-${month}`;
+            $monthSelector.val(`${year}-${month}`);
+        }
+
+        $("document").ready(function () {
+            formatDateMonthForSelector(today);
+
+            
+            // initialization
+            renderCalendar();
+        });
+
+        $("#clear-btn").click( () => {
+            // reset the selector value with today's date/time
+            formatDateMonthForSelector(today);
+        });
+    </script>
+</body>
+
+</html>
